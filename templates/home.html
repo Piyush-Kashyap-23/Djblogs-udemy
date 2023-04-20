@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+
+{% block title %}HomePage{% endblock title %}
+
+{% block content %}
+    <div class="container">
+      {% for post in posts_list %}
+<div class="blog">
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.body }}</p>
+  <a href="{% url 'post_detail' post.id %}">Read more</a>
+</div>
+{% empty %}
+<h1>No posts to show</h1>
+{% endfor %}
+    </div>
+{% endblock content %}
